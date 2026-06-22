@@ -7,13 +7,16 @@ manager = Manager()
 manager.weapons.extend(weapons)
 manager.pictos.extend(pictos)
 
-print(*manager.list_weapons_by_effect("Base Attack"), sep=", ")
-print(*manager.list_weapons_by_effect("Free Aim Shot"), sep=", ")
-print(*manager.list_weapons_by_effect("Defence"), sep=", ")
-print(*manager.list_weapons_by_effect("Rush"), sep=", ")
-print(*manager.list_weapons_by_effect("Speed"), sep=", ")
-print(*manager.list_weapons_by_effect("Shield"), sep=", ")
+effect = input("Effect: ")
+print("------")
 
-# print(*manager.list_pictos_by_effect("Defence"), sep=", ")
-# print(*manager.list_pictos_by_effect("Rush"), sep=", ")
-# print(*manager.list_pictos_by_effect("Free Aim Shot"), sep=", ")
+result = manager.list_weapons_by_effect(effect)
+
+for weapon in result:
+    print(f"Name:\t{weapon.name}")
+    print(f"Owner:\t{weapon.owner}")
+    print(f"Lvl 4:\t{weapon.lvl4}")
+    print(f"Lvl 10:\t{weapon.lvl10}")
+    print(f"Lvl 20:\t{weapon.lvl20}")
+    print("------")
+

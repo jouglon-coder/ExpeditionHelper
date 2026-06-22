@@ -6,7 +6,6 @@ class Manager:
     pictos: list[Pictos] = []
 
     def list_weapons_by_effect(self, effect: str):
-        print(f"Weapons by {effect}: ", end="")
         result = []
         for weapon in self.weapons:
             fields = [weapon.lvl4, weapon.lvl10, weapon.lvl20]
