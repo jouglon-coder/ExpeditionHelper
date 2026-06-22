@@ -9,7 +9,9 @@ class Manager:
         result = []
         for weapon in self.weapons:
             fields = [weapon.lvl4, weapon.lvl10, weapon.lvl20]
-            if any(effect.lower() in field.lower() for field in fields):
+            if any(effect.lower() in field.lower() for field in fields) and effect != effect.upper():
+                result.append(weapon)
+            elif any(effect in field for field in fields) and effect == effect.upper(): # for AP
                 result.append(weapon)
         return result
 
