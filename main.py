@@ -8,9 +8,10 @@ manager.weapons.extend(weapons)
 manager.pictos.extend(pictos)
 
 effect = input("Effect: ")
+owner = input("Owner: ")
 print("------")
 
-result = manager.list_weapons_by_effect(effect)
+result = manager.list_weapons_by_effect(effect, owner)
 
 for weapon in result:
     print(f"Name:\t{weapon.name}")
