@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class Weapon:
     name: str
@@ -7,13 +8,30 @@ class Weapon:
     lvl4: str
     lvl10: str
     lvl20: str
+
     def __repr__(self):
         return f"{self.name}"
 
+
+@dataclass
+class Pictos:
+    name: str
+    description: str
+
+    def __repr__(self):
+        return f"{self.name}"
+
+
 class Manager:
     weapons: list[Weapon] = []
+    pictos: list[Pictos] = []
+
     def add_weapon(self, name, owner, lvl4, lvl10, lvl20):
         self.weapons.append(Weapon(name, owner, lvl4, lvl10, lvl20))
+
+    def add_pictos(self, name, description):
+        self.pictos.append(Pictos(name, description))
+
     def list_weapons_by_effect(self, effect: str):
         print(f"Weapons by {effect}: ", end="")
         result = []
@@ -22,6 +40,15 @@ class Manager:
             if any(effect.lower() in field.lower() for field in fields):
                 result.append(weapon)
         return result
+
+    def list_pictos_by_effect(self, effect: str):
+        print(f"Pictos by {effect}: ", end="")
+        result = []
+        for pictos in self.pictos:
+            if effect.lower() in pictos.description.lower():
+                result.append(pictos)
+        return result
+
 
 manager = Manager()
 
@@ -68,7 +95,7 @@ manager.add_weapon(
     owner=r"Verso",
     lvl4=r"Base Attack applies 2 Burn stack per Rank.",
     lvl10=r"+1 AP on Rank Up.",
-    lvl20=r"Increase Burn damage by 50% per Rank, up to 300% on Rank S. ",
+    lvl20=r"Increase Burn damage by 50% per Rank, up to 300% on Rank S.",
 )
 manager.add_weapon(
     name=r"Cruleram",
@@ -78,5 +105,23 @@ manager.add_weapon(
     lvl20=r"Apply Powerless on Counterattack.",
 )
 
+manager.add_pictos(
+    name=r"Accelerating Heal",
+    description=r"Healing an ally also applies Rush for 1 turn.",
+)
+
+manager.add_pictos(
+    name=r"Accelerating Last Stand",
+    description=r"Gain Rush if fighting alone.",
+)
+
+manager.add_pictos(
+    name=r"Accelerating Shots",
+    description=r"20% chance to gain Rush on Free Aim shot.",
+)
+
 print(*manager.list_weapons_by_effect("Base Attack"), sep=", ")
 print(*manager.list_weapons_by_effect("Shield"), sep=", ")
+
+print(*manager.list_pictos_by_effect("Rush"), sep=", ")
+print(*manager.list_pictos_by_effect("Free Aim Shot"), sep=", ")
