@@ -14,6 +14,7 @@ result = manager.list_weapons_by_effect(effect)
 
 for weapon in result:
     print(f"Name:\t{weapon.name}")
+    print(f"Elem:\t{weapon.elem}")
     print(f"Owner:\t{weapon.owner}")
     print(f"Lvl 4:\t{weapon.lvl4}")
     print(f"Lvl 10:\t{weapon.lvl10}")

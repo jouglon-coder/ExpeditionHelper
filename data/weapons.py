@@ -4,30 +4,31 @@ from models import Weapon
 weapons = [
     Weapon(
         name="Abysseram",
+        elem="Physical",
         owner="Verso",
         lvl4="50% increased damage on Rank D. No damage increase on other ranks",
         lvl10="50% increased Base Attack damage",
         lvl20="On Rank D, recover 20% Health with Base Attack"
     ),
-    
     Weapon(
         name="Blodam",
+        elem="Light",
         owner="Verso",
         lvl4="Perfection is now based on current Health. Gain 1 Rank every 20% missing Health",
         lvl10="20% increased Light damage with Skills",
         lvl20="+1 AP on Rank Up",
     ),
-    
     Weapon(
         name="Chevalam",
+        elem="Physical",
         owner="Verso",
         lvl4="Start battle at Rank S, but can't be Healed or gain Shields",
         lvl10="20% increased damage for each consecutive turn without taking damage. Can stack up to 5 times",
         lvl20="Apply Rush on Rank S",
     ),
-    
     Weapon(
         name="Confuso",
+        elem="Light",
         owner="Verso",
         lvl4="Light damage can Burn on Critical hits",
         lvl10="Apply 3 Burn instead of Mark",
@@ -35,6 +36,7 @@ weapons = [
     ),
     Weapon(
         name="Contorso",
+        elem="Lightning",
         owner="Verso",
         lvl4="Switch to Rank S on Break. Base Attack can Break",
         lvl10="100% Critical Chance on Rank S",
@@ -42,6 +44,7 @@ weapons = [
     ),
     Weapon(
         name="Corpeso",
+        elem="Fire",
         owner="Verso",
         lvl4="Base Attack applies 2 Burn stack per Rank",
         lvl10="+1 AP on Rank Up",
@@ -49,13 +52,23 @@ weapons = [
     ),
     Weapon(
         name="Cruleram",
+        elem="Ice",
         owner="Verso",
         lvl4="Don't lose Rank when taking damage from Powerless enemies",
         lvl10="+1 Perfection on hitting a Powerless enemy",
         lvl20="Apply Powerless on Counterattack",
     ),
     Weapon(
+        name="Cultam",
+        elem="Dark",
+        owner="Verso",
+        lvl4="No Perfection loss on damage taken. Perfection is instead lost on being Healed",
+        lvl10="Gain 2 AP on Counterattack",
+        lvl20="Gain 1 Rank on Counterattack",
+    ),
+    Weapon(
         name="Danseso",
+        elem="Fire",
         owner="Verso",
         lvl4="Base attack gives 1 Perfection per Burn on target",
         lvl10="While Powerful, 20% chance to Burn on hit",
@@ -63,6 +76,7 @@ weapons = [
     ),
     Weapon(
         name="Delaram",
+        elem="Light",
         owner="Verso",
         lvl4="Start battle on Rank B, but 50% Health",
         lvl10="Recover 15% Health on Base Attack",
@@ -70,6 +84,7 @@ weapons = [
     ),
     Weapon(
         name="Demonam",
+        elem="Light",
         owner="Verso",
         lvl4="Casting a Light Skill increases damage of next Physical Skill cast by 50% and vice versa",
         lvl10="20% increased Physical damage with Skills",
@@ -77,20 +92,15 @@ weapons = [
     ),
     Weapon(
         name="Dreameso",
+        elem="Physical",
         owner="Verso",
         lvl4="Gain 1 Rank on Counterattack",
         lvl10="50% increased Counterattack damage",
         lvl20="Gain 2 AP on Counterattack",
     ),
     Weapon(
-        name="Cultam",
-        owner="Verso",
-        lvl4="No Perfection loss on damage taken. Perfection is instead lost on being Healed",
-        lvl10="Gain 2 AP on Counterattack",
-        lvl20="Gain 1 Rank on Counterattack",
-    ),
-    Weapon(
         name="Dualiso",
+        elem="Lightning",
         owner="Verso",
         lvl4="Play again after a Base Attack",
         lvl10="50% increased Base Attack damage",
@@ -98,6 +108,7 @@ weapons = [
     ),
     Weapon(
         name="Gaulteram",
+        elem="Earth",
         owner="Verso",
         lvl4="When hit, lose 1 Perfection instead of 1 rank",
         lvl10="Apply Rush on Rank S",
@@ -105,6 +116,7 @@ weapons = [
     ),
     Weapon(
         name="Gesam",
+        elem="Physical",
         owner="Verso",
         lvl4="Convert Light damage Skills to Physical damage",
         lvl10="20% increased Physical damage with Skills",
@@ -112,6 +124,7 @@ weapons = [
     ),
     Weapon(
         name="Glaceso",
+        elem="Ice",
         owner="Verso",
         lvl4="+1 Perfection on Critical hit",
         lvl10="Self-Heal by 2% Health on dealing a Critical hit",
@@ -119,6 +132,7 @@ weapons = [
     ),
     Weapon(
         name="Lanceram",
+        elem="Physical",
         owner="Verso",
         lvl4="Rank can't be lower than C",
         lvl10="Base Attack gives 4 Perfection",
@@ -126,6 +140,7 @@ weapons = [
     ),
     Weapon(
         name="Liteso",
+        elem="Physical",
         owner="Verso",
         lvl4="Base Attack consumes all Shields to deal 100% increased damage per Shield",
         lvl10="+1 Shield on Counterattack",
@@ -133,6 +148,7 @@ weapons = [
     ),
     Weapon(
         name="Noahram",
+        elem="Physical",
         owner="Verso",
         lvl4="",
         lvl10="",
@@ -140,6 +156,7 @@ weapons = [
     ),
     Weapon(
         name="Nosaram",
+        elem="Physical",
         owner="Verso",
         lvl4="Double Perfection gained on Free Aim shots",
         lvl10="Free Aim shots break 2 Shields",
@@ -147,6 +164,7 @@ weapons = [
     ),
     Weapon(
         name="Sakaram",
+        elem="Physical",
         owner="Verso",
         lvl4="Can't lose Perfection. No damage increase from Rank",
         lvl10="50% increased Base Attack damage",
@@ -154,6 +172,7 @@ weapons = [
     ),
     Weapon(
         name="Seeram",
+        elem="Light",
         owner="Verso",
         lvl4="+1 to all Perfection gain but can't reach Rank S",
         lvl10="Base Attack gives 4 Perfection",
@@ -161,6 +180,7 @@ weapons = [
     ),
     Weapon(
         name="Simoso",
+        elem="Light",
         owner="Verso",
         lvl4="An ethereal Sword deals Light damage on any damage dealt with Skills",
         lvl10="20% chance to apply Burn on dealing Light damage",
@@ -168,6 +188,7 @@ weapons = [
     ),
     Weapon(
         name="Sireso",
+        elem="Physical",
         owner="Verso",
         lvl4="Bonus damage from Perfection applies to all allies at half value. Bonus damage no longer applies to Versoo",
         lvl10="Perfection gained is increased by 1 while Powerful",
@@ -175,6 +196,7 @@ weapons = [
     ),
     Weapon(
         name="Tireso",
+        elem="Earth",
         owner="Verso",
         lvl4="Gain 1 Rank on applying Mark",
         lvl10="Mark an enemy on Base Attack",
@@ -182,6 +204,7 @@ weapons = [
     ),
     Weapon(
         name="Verleso",
+        elem="Physical",
         owner="Verso",
         lvl4="",
         lvl10="",
@@ -189,6 +212,7 @@ weapons = [
     ),
     Weapon(
         name="Esquiso",
+        elem="Light",
         owner="Verso",
         lvl4="Gain Aureole on Rank S, but drop to Rank D",
         lvl10="30% increased damage when revived",
@@ -196,6 +220,7 @@ weapons = [
     ),
     Weapon(
         name="Sucreso",
+        elem="Earth",
         owner="Verso",
         lvl4="Rank D on turn start",
         lvl10="Ranks reduce damage taken by 20% per Rank, instead of increasing damage dealt",
@@ -203,6 +228,7 @@ weapons = [
     ),
     Weapon(
         name="Ballaro",
+        elem="Light",
         owner="Monoco",
         lvl4="Reverse Bestial Wheel Order",
         lvl10="Using an Upgraded Skill gives 1 AP to all other allies",
@@ -210,6 +236,7 @@ weapons = [
     ),
     Weapon(
         name="Boucharo",
+        elem="Fire",
         owner="Monoco",
         lvl4="Start battle in Agile Mask",
         lvl10="Agile Mask applies Rush for 3 turns",
@@ -217,6 +244,7 @@ weapons = [
     ),
     Weapon(
         name="Brumaro",
+        elem="Physical",
         owner="Monoco",
         lvl4="Replay instantly when in Almighty Mask",
         lvl10="+3 AP when in Almighty Mask",
@@ -224,6 +252,7 @@ weapons = [
     ),
     Weapon(
         name="Chromaro",
+        elem="Ice",
         owner="Monoco",
         lvl4="Start battle in Caster Mask",
         lvl10="Caster Mask applies Regen for 3 turns",
@@ -231,6 +260,7 @@ weapons = [
     ),
     Weapon(
         name="Fragaro",
+        elem="Lightning",
         owner="Monoco",
         lvl4="Free Aim shots spin the Bestial Wheel to a random value",
         lvl10="Free Aim shots deal 100% more damage with all Masks except Almighty",
@@ -238,6 +268,7 @@ weapons = [
     ),
     Weapon(
         name="Grandaro",
+        elem="Earth",
         owner="Monoco",
         lvl4="Start battle in Heavy Mask",
         lvl10="Heavy Mask applies Shell for 3 turns",
@@ -245,13 +276,15 @@ weapons = [
     ),
     Weapon(
         name="Joyaro",
+        elem="Lightning",
         owner="Monoco",
         lvl4="Start battle in Almighty Mask",
         lvl10="20% increased damage for each consecutive turn without taking damage. Can stack up to 5 times",
         lvl20="Break damage is doubled while in Almighty Mask",
     ),
     Weapon(
-        name="Monocoaro",
+        name="Monocaro",
+        elem="Physical",
         owner="Monoco",
         lvl4="Start battle in Balanced Mask",
         lvl10="Balanced Mask applies Powerful for 3 turns",
@@ -259,6 +292,7 @@ weapons = [
     ),
     Weapon(
         name="Nusaro",
+        elem="Dark",
         owner="Monoco",
         lvl4="Parries increase the Bestial Wheel by 1. Taking damage resets the Bestial Wheel",
         lvl10="Upgraded Skills deal 30% more damage",
@@ -266,6 +300,7 @@ weapons = [
     ),
     Weapon(
         name="Sidaro",
+        elem="Dark",
         owner="Monoco",
         lvl4="30% increased damage per Upgraded Skill used. Resets upon using a non-Upgraded Skill",
         lvl10="Base Attack spins the Bestial Wheel to a random value",
@@ -273,6 +308,7 @@ weapons = [
     ),
     Weapon(
         name="Urnaro",
+        elem="Earth",
         owner="Monoco",
         lvl4="Switch to Almighty Mask on Breaking an enemy",
         lvl10="Almighty Mask gives 2 AP to all allies",
@@ -280,6 +316,7 @@ weapons = [
     ),
     Weapon(
         name="Baguettaro",
+        elem="Fire",
         owner="Monoco",
         lvl4="Critical hits apply Burn",
         lvl10="Almighty Mask gives 50% increased damage (cumulative) and doubles enemies' Burn",
@@ -287,6 +324,7 @@ weapons = [
     ),
     Weapon(
         name="Esquiaro",
+        elem="Earth",
         owner="Monoco",
         lvl4="Base Attack moves the Bestial Wheel to Heavy Mask",
         lvl10="Heavy Mask gives 1 Shield to all allies",
@@ -294,9 +332,212 @@ weapons = [
     ),
     Weapon(
         name="Cannaro",
+        elem="Light",
         owner="Monoco",
         lvl4="Free Aim Shots move the Bestial Wheel 1 step forward",
         lvl10="25% increased damage per Mask change this turn",
         lvl20="Free Aim shoots deal double damage while in Almighty Mask",
+    ),
+    Weapon(
+        name="Angerim",
+        elem="Fire",
+        owner="Lune",
+        lvl4="Base Attack applies 2 Burn per Fire Stain.",
+        lvl10="Generate one Fire Stain at the beginning of each turn.",
+        lvl20="30% increased Burn damage per Fire Stain.",
+    ),
+    Weapon(
+        name="Benisim",
+        elem="Earth",
+        owner="Lune",
+        lvl4="Healing Skills cost 1 less AP.",
+        lvl10="Generate one Earth Stain at the beginning of each turn.",
+        lvl20="Replay instantly on consuming Stains with a Healing Skill.",
+    ),
+    Weapon(
+        name="Betelim",
+        elem="Earth",
+        owner="Lune",
+        lvl4="Using a Skill that consumes Stains increases damage by 20%. Can stack up to 5 times. Resets on using a Skill without consuming Stains.",
+        lvl10="On turn start, if no Stains, 2 random Stains are generated",
+        lvl20="+1 AP when Stains are consumed.",
+    ),
+    Weapon(
+        name="Braselim",
+        elem="Fire",
+        owner="Lune",
+        lvl4="30% increased Critical Chance per Ice Stain.",
+        lvl10="+5% of a Gradient Charge on Critical hit.",
+        lvl20="20% increased Fire damage with Skills.",
+    ),
+    Weapon(
+        name="Chapelim",
+        elem="Earth",
+        owner="Lune",
+        lvl4="30% increased Break damage per Earth Stain.",
+        lvl10="Gain 9 AP on Breaking an enemy.",
+        lvl20="Generate one Earth Stain at the beginning of each turn.",
+    ),
+    Weapon(
+        name="Choralim",
+        elem="Fire",
+        owner="Lune",
+        lvl4="100% Critical Chance when 4 Stains are simultaneously active",
+        lvl10="20% increased damage for each consecutive turn without taking damage. Can stack up to 5 times.",
+        lvl20="Critical hits apply Burn.",
+    ),
+    Weapon(
+        name="Colim",
+        elem="Light",
+        owner="Lune",
+        lvl4="50% chance to generate a Light Stain when consuming Stains",
+        lvl10="+1 AP on consuming a Light Stain.",
+        lvl20="20% increased damage with Skills per active Light Stain.",
+    ),
+    Weapon(
+        name="Coralim",
+        elem="Ice",
+        owner="Lune",
+        lvl4="Ice Skills cost 1 less AP.",
+        lvl10="20% increased Ice damage with Skills.",
+        lvl20="Start battle with 1 Earth Stain",
+    ),
+    Weapon(
+        name="Deminerim",
+        elem="Lightning",
+        owner="Lune",
+        lvl4="Lightning Skills cost 1 less AP",
+        lvl10="20% increased Lightning damage with Skills.",
+        lvl20="Start battle with 1 Fire Stain.",
+    ),
+    Weapon(
+        name="Elerim",
+        elem="Earth",
+        owner="Lune",
+        lvl4="Consuming an Earth Stain applies 1 Shield to self.",
+        lvl10="20% increased Earth damage with Skills.",
+        lvl20="Base Attack generates an Earth Stain.",
+    ),
+    Weapon(
+        name="Kralim",
+        elem="Lightning",
+        owner="Lune",
+        lvl4="Casting a Skill increases the Skill damage of all other elements by 20%.
+Resets when casting a Skill of a previous element.",
+        lvl10="On turn start, if no Stains, 2 random Stains are generated.",
+        lvl20="+1 AP when Stains are consumed.",
+    ),
+    Weapon(
+        name="Lighterim",
+        elem="Fire",
+        owner="Lune",
+        lvl4="Fire Skills cost 1 less AP.",
+        lvl10="20% increased Fire damage with Skills.",
+        lvl20="Start battle with 1 Ice Stain.",
+    ),
+    Weapon(
+        name="Lithelim",
+        elem="Void",
+        owner="Lune",
+        lvl4="50% chance to generate a Dark Stain when consuming Stains.
+Deal 50% more damage with Skills per active Dark Stain.",
+        lvl10="+1 AP on consuming a Light Stain.",
+        lvl20="Base Attacks can consume one Dark Stain to deal 200% more damage.",
+    ),
+    Weapon(
+        name="Lunerim",
+        elem="Fire",
+        owner="Lune",
+        lvl4="",
+        lvl10="",
+        lvl20="",
+    ),
+    Weapon(
+        name="Painerim",
+        elem="Earth",
+        owner="Lune",
+        lvl4="Earth Skills cost 1 less AP.",
+        lvl10="20% increased Earth damage with Skills.",
+        lvl20="Start battle with 1 Lightning Stain.",
+    ),
+    Weapon(
+        name="Potierim",
+        elem="Ice",
+        owner="Lune",
+        lvl4="Healing Skills generate one additional 1 Light stain.",
+        lvl10="Consuming a Light Stain applies Slow to a random enemy.",
+        lvl20="Base Attack generates a Light Stain.",
+    ),
+    Weapon(
+        name="Redalim",
+        elem="Ice",
+        owner="Lune",
+        lvl4="Healing Skills generate one additional Light stain.",
+        lvl10="Generate one Ice Stain at the beginning of each turn.",
+        lvl20="Replay instantly on consuming Stains with a Healing Skill.",
+    ),
+    Weapon(
+        name="Saperim",
+        elem="Lightning",
+        owner="Lune",
+        lvl4="Using a Gradient Attack generates 1 additional Light Stain.",
+        lvl10="When a Fire Stain is generated, a Lightning Stain is also generated. Once per turn.",
+        lvl20="Gradient Attacks and Gradient Counters deal 50% more damage.",
+    ),
+    Weapon(
+        name="Scaverim",
+        elem="Dark",
+        owner="Lune",
+        lvl4="50% chance to generate a Dark Stain when consuming Stains. Deal 50% more damage with Skills per active Dark Stain.",
+        lvl10="Base Attacks can consume one Dark Stain to deal 200% more damage.",
+        lvl20="With 4 active Dark Stains, any Skill can consume them to deal 300% more damage.",
+    ),
+    Weapon(
+        name="Snowim",
+        elem="Ice",
+        owner="Lune",
+        lvl4="Freeze self when falling below 30% health. Prevent the next instance of damage while Frozen.",
+        lvl10="On turn start, if Frozen, remove Freeze and recover 60% Health",
+        lvl20="Gain 2 Ice Stains and 3 AP when Frozen.",
+    ),
+    Weapon(
+        name="Trebuchim",
+        elem="Lightning",
+        owner="Lune",
+        lvl4="Generate a random Stain on Free Aim shot.",
+        lvl10="+1 AP when Stains are consumed.",
+        lvl20="Base Attack generates 2 random Stains.",
+    ),
+    Weapon(
+        name="Troubadim",
+        elem="Physical",
+        owner="Lune",
+        lvl4="Free Aim Shots deal damage to an additional random target.",
+        lvl10="50% increased Free Aim damage.",
+        lvl20="Generate a random Stain on Free Aim shot.",
+    ),
+    Weapon(
+        name="Bonbim",
+        elem="Lightning",
+        owner="Lune",
+        lvl4="+5% Critical chance per Burn on the target.",
+        lvl10="Critical hits apply Burn.",
+        lvl20="Lightning Skills consume up to 100 Burn to deal 2% more damage per Burn consumed.",
+    ),
+    Weapon(
+        name="Cleim",
+        elem="Light",
+        owner="Lune",
+        lvl4="Damage can't be reduced, blocked, or absorbed by Elemental Affinities.",
+        lvl10="An ethereal Sword deals Light damage on any damage dealt with Skills.",
+        lvl20="Starting a turn with 1 Earth, 1 Fire, 1 Ice, and 1 Lightning Stain doubles damage dealt this turn",
+    ),
+    Weapon(
+        name="Esquim",
+        elem="Dark",
+        owner="Lune",
+        lvl4="Using a Skill that doesn't consume Stains increases damage by 20%. Resets on using a Skill that consumes Stains",
+        lvl10="Base attack changes all current Stains into Dark Stains.",
+        lvl20="With 4 active Dark Stains, any Skill can consume them to deal 300% more damage.",
     ),
 ]

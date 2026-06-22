@@ -5,6 +5,7 @@ from dataclasses import dataclass
 class Weapon:
     name: str
     owner: str
+    elem: str
     lvl4: str
     lvl10: str
     lvl20: str
