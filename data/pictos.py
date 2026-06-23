@@ -15,7 +15,7 @@ pictos = [
         description="Consume a Healing Tint when falling below 50% Health",
         cost=10,
         location={
-             "Verso's Drafts": Franctale enemy around Gingerbread Door",
+             "Verso's Drafts": "Franctale enemy around Gingerbread Door",
         },
     ),
     Pictos(
@@ -76,7 +76,7 @@ pictos = [
     ),
     Pictos(
         name="Longer Break",
-        description="Breaks last 1 more turn but the target can't be Broken twice",
+        description="Breaks last 1 more turn but the target cannot be Broken twice",
         cost=10,
         location={
              "Verso's Drafts": "The group of Barbasucette and Machinapieds below the first Expedition Flag",
@@ -576,7 +576,7 @@ pictos = [
     ),
     Pictos(
         name="Confident",
-        description="Take 50% less damage, but can't be Healed",
+        description="Take 50% less damage, but cannot be Healed",
         cost=20,
         location={
              "Stone Wave Cliffs": "Hexga past the Entrance Expedition Flag",
@@ -585,7 +585,7 @@ pictos = [
     ),
     Pictos(
         name="Confident Fighter",
-        description="30% increased damage, but can't be Healed",
+        description="30% increased damage, but cannot be Healed",
         cost=15,
         location={
              "Visages": "Joyful Vale area. Head up the ramp near the mask on the right side, then defeat the Boucheclier. Proceed to the area on the right",
@@ -596,7 +596,7 @@ pictos = [
         description="25% increased Break damage on Critical Hits",
         cost=5,
         location={
-             "The Continent": "Inside a Paint Spike on a small beach to the west of the Isle of the Eyes. ",
+             "The Continent": "Inside a Paint Spike on a small beach to the west of the Isle of the Eyes",
         },
     ),
     Pictos(
@@ -1567,7 +1567,7 @@ pictos = [
     ),
     Pictos(
         name="Shield Affinity",
-        description=" 30% increased damage while having Shields, but receiving any damage always removes all Shields",
+        description="30% increased damage while having Shields, but receiving any damage always removes all Shields",
         cost=15,
         location={
              "Sirene": "Break the Paint Cage to obtain Shield Affinity",
