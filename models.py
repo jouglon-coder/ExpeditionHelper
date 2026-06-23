@@ -18,6 +18,8 @@ class Weapon:
 class Pictos:
     name: str
     description: str
+    cost: int
+    location: dict
 
     def __repr__(self):
         return f"{self.name}"
