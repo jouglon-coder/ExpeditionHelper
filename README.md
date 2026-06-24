@@ -97,3 +97,9 @@ Clair Obscur: Expedition 33, its characters, item names, weapon names, Pictos na
 This project is not affiliated with, endorsed by, sponsored by, or approved by Sandfall Interactive or Kepler Interactive.
 
 The repository contains game-related data for reference and search purposes only. No ownership of the original game content is claimed.
+
+## License
+
+The source code in this repository is licensed under the MIT License.
+
+Game-related names, descriptions, terminology, and other third-party content are not covered by the MIT License and remain the property of their respective copyright and trademark owners.
