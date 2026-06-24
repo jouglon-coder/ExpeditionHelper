@@ -10,8 +10,8 @@ class Weapon:
     lvl10: str
     lvl20: str
 
-    def __repr__(self):
-        text = f"""------
+    def __str__(self):
+        text = f"""-------
 Name : {self.name}
 Elem : {self.elem}
 Owner: {self.owner}
@@ -29,8 +29,8 @@ class Pictos:
     cost: int
     location: dict
 
-    def __repr__(self):
-        text = f"""------
+    def __str__(self):
+        text = f"""-------
 Name: {self.name}
 Desc: {self.description}
 Cost: {self.cost}
