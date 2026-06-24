@@ -11,7 +11,15 @@ class Weapon:
     lvl20: str
 
     def __repr__(self):
-        return f"{self.name}"
+        text = f"""------
+Name : {self.name}
+Elem : {self.elem}
+Owner: {self.owner}
+lvl4 : {self.lvl4}
+lvl10: {self.lvl10}
+lvl20: {self.lvl20}
+"""
+        return text
 
 
 @dataclass
@@ -22,4 +30,9 @@ class Pictos:
     location: dict
 
     def __repr__(self):
-        return f"{self.name}"
+        text = f"""------
+Name: {self.name}
+Desc: {self.description}
+Cost: {self.cost}
+"""
+        return text

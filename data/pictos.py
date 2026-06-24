@@ -156,7 +156,7 @@ pictos = [
     ),
     Pictos(
         name="Accelerating Shots",
-        description="20% chance to gain Rush on Free Aim shot",
+        description="20% chance to gain Rush on Free Aim Shot",
         cost=3,
         location={
              "Flying Manor": "Merchant",
@@ -445,7 +445,7 @@ pictos = [
     ),
     Pictos(
         name="Burning Shots",
-        description="20% chance to Burn on Free Aim shot",
+        description="20% chance to Burn on Free Aim Shot",
         cost=3,
         location={
              "Spring Meadows": "Abandoned Expedition Camp Expedition Flag",
@@ -618,7 +618,7 @@ pictos = [
     ),
     Pictos(
         name="Critical Stun",
-        description="100% on Critical Chance on hitting a Stunned target",
+        description="100% Critical Chance on hitting a Stunned target",
         cost=5,
         location={
              "Sacred River": "Merchant",
@@ -774,7 +774,7 @@ pictos = [
     ),
     Pictos(
         name="Energetic Healer",
-        description="+2AP on Healing an ally. Once per turn",
+        description="+2 AP on Healing an ally. Once per turn",
         cost=10,
         location={
              "Flying Manor": "Around Lampmaster",
@@ -816,7 +816,7 @@ pictos = [
     ),
     Pictos(
         name="Energising Cleanse",
-        description="Dispel the first negative Status Effect received an gain 2 AP",
+        description="Dispel the first negative Status Effect received and gain 2 AP",
         cost=10,
         location={
              "The Monolith": "Merchant",
@@ -857,7 +857,7 @@ pictos = [
     ),
     Pictos(
         name="Energising Pain",
-        description="No longer gain AP on Parry. +1AP on getting hit",
+        description="No longer gain AP on Parry. +1 AP on getting hit",
         cost=10,
         location={
              "Stone Wave Cliffs": "Follow the main path all the way to the destroyed airship. Go through the tunnel that was left by the remnants of the airship, then cross the platform to reach the other side. Stay on this path until you encounter a duo of a Greatsword Cultist and Reaper Cultist near the bridge",
@@ -910,7 +910,7 @@ pictos = [
     ),
     Pictos(
         name="Energising Shots",
-        description="20% chance to gain 1 AP on Free Aim shot",
+        description="20% chance to gain 1 AP on Free Aim Shot",
         cost=10,
         location={
              "Flying Manor": "On the left side of Goblu's arena",
@@ -1287,7 +1287,7 @@ pictos = [
     ),
     Pictos(
         name="Marking Shots",
-        description="20% chance to apply Mark on Free Aim shot",
+        description="20% chance to apply Mark on Free Aim Shot",
         cost=3,
         location={
              "Flying Waters": "Found at the end of a path guarded by 2 Lusters, on the path to the left right after encountering the first solo Luster",
@@ -1319,7 +1319,7 @@ pictos = [
     ),
     Pictos(
         name="Piercing Shot",
-        description="25% increased Free Aim damage. Free Aim shots ignore Shields",
+        description="25% increased Free Aim damage. Free Aim Shots ignore Shields",
         cost=2,
         location={
              "Ancient Sanctuary": "From the Sanctuary Maze Expedition Flag, head forward and hug the left wall until you reach a Paint Spike",
@@ -1377,7 +1377,7 @@ pictos = [
     ),
     Pictos(
         name="Powerful Shots",
-        description="20% chance to gain Powerful on Free Aim shot",
+        description="20% chance to gain Powerful on Free Aim Shot",
         cost=3,
         location={
              "Gestral Village": "Paint Spike across from the Gestral Doctor",
@@ -1426,7 +1426,7 @@ pictos = [
     ),
     Pictos(
         name="Protecting Shots",
-        description="20% chance to gain Shell on Free Aim shot",
+        description="20% chance to gain Shell on Free Aim Shot",
         cost=3,
         location={
              "Flying Manor": "Upon entering the location, head down the stairs and turn right. To the right, pass in front of the Cruler statue and between the pillars. Use the rope to zip down and find Protecting Shots on the edge of a broken picture frame",
@@ -1608,7 +1608,7 @@ pictos = [
     ),
     Pictos(
         name="Sniper",
-        description="First Free Aim shot each turn deals 200% increased damage and can Break",
+        description="First Free Aim Shot each turn deals 200% increased damage and can Break",
         cost=15,
         location={
              "The Reacher": "Mountain Expedition Flag, proceed along the path ahead, and grapple across to the mountain",
@@ -1727,7 +1727,7 @@ pictos = [
     ),
     Pictos(
         name="Weakness Gain",
-        description="+1AP on hitting an enemy's Weakness. Once per turn",
+        description="+1 AP on hitting an enemy's Weakness. Once per turn",
         cost=3,
         location={
              "The Monolith": "From the Tainted Cliffs Expedition Flag, make your way up and grapple across to the cliffs ahead. Continue down this straight path, past the forks in the path. At the end where you are met with a statue, take the right path, head right to find a broken airship",
