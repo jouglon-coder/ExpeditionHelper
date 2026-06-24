@@ -36,7 +36,7 @@ def pictos_by_location(manager):
 def main():
     manager = Manager()
     manager.weapons.extend(weapons)
-    manager.weapons.sort(key=lambda x: x.name)
+    manager.weapons.sort(key=lambda x: x.owner)
     manager.pictos.extend(pictos)
     manager.pictos.sort(key=lambda x: x.name)
 
