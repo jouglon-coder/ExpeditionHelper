@@ -36,3 +36,22 @@ Desc: {self.description}
 Cost: {self.cost}
 """
         return text
+
+
+@dataclass
+class Skill:
+    name: str
+    cost: int
+    owner: str
+    description: str
+    special: str
+
+    def __str__(self):
+        text = f"""-------
+Name : {self.name}
+Cost : {self.cost}
+Owner: {self.owner}
+Desc : {self.description}
+Spec : {self.special}
+"""
+        return text
