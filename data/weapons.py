@@ -46,7 +46,7 @@ weapons = [
         name="Corpeso",
         elem="Fire",
         owner="Verso",
-        lvl4="Base Attack applies 2 Burn stack per Rank",
+        lvl4="Base Attack applies 2 Burn stacks per Rank",
         lvl10="+1 AP on Rank Up",
         lvl20="Increase Burn damage by 50% per Rank, up to 300% on Rank S",
     ),

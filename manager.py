@@ -36,7 +36,7 @@ class Manager:
         return result
 
     def list_skills_by_effect(self, effect: str, owner:str, special: str):
-        users = ["lune", "maelle", "monoco", "sceil", "verso"]
+        users = ["lune", "maelle", "monoco", "sciel", "verso"]
         result = []
         for skill in self.skills:
             if effect in skill.description.lower():
