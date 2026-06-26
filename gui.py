@@ -15,10 +15,12 @@ EFFECTS = (
     "powerless",
     "slow",
     "defenceless",
+    "shield",
     "base attack",
     "shot",
     "burn",
     "mark",
+    "AP",
 )
 
 
@@ -103,7 +105,11 @@ class ExpeditionHelperApp:
         for effect_name, variable in effect_variables.items():
             checkbutton = ttk.Checkbutton(
                 filters_frame,
-                text=effect_name.title(),
+                text=(
+                    effect_name
+                    if effect_name == "AP"
+                    else effect_name.title()
+                ),
                 variable=variable,
                 command=lambda: self.filter_by_effects(
                     table=table,
@@ -264,10 +270,10 @@ class ExpeditionHelperApp:
                 searchable_text = " ".join(
                     str(getattr(item, field_name))
                     for field_name in search_fields
-                ).lower()
+                )
 
                 if all(
-                    effect in searchable_text
+                    self.effect_matches(effect, searchable_text)
                     for effect in selected_effects
                 ):
                     filtered_items.append(item)
@@ -338,6 +344,13 @@ class ExpeditionHelperApp:
             "\n\n".join(lines),
         )
         details.configure(state="disabled")
+
+    @staticmethod
+    def effect_matches(effect: str, text: str) -> bool:
+        if effect == "AP":
+            return "AP" in text
+
+        return effect.lower() in text.lower()
 
     @staticmethod
     def clear_details(details: tk.Text):

@@ -910,7 +910,7 @@ weapons = [
         name="Duollison",
         elem="Physical",
         owner="Sciel",
-        lvl4="Each successive base attack hit on the same turn deals 100% more damage",
+        lvl4="Each successive Base Attack hit on the same turn deals 100% more damage",
         lvl10="Free Aim Shots apply 1 Foretell. Base Attack consumes all Foretell to deal 50% more damage per Foretell consumed",
         lvl20="During Twilight, any Foretell consumed is not removed",
     ),
