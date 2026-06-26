@@ -35,11 +35,11 @@ class Manager:
                 result.append(pictos)
         return result
 
-    def list_skills_by_effect(self, effect: str, owner:str, special: str):
+    def list_skills_by_effect(self, effect: str, owner: str, special: str):
         users = ["lune", "maelle", "monoco", "sciel", "verso"]
         result = []
         for skill in self.skills:
-            if effect in skill.description.lower():
+            if effect in skill.description.lower() or effect in skill.special.lower():
                 if owner == "any" and special == "any":
                     result.append(skill)
                 elif owner in users and special == "any" and owner == skill.owner.lower():
