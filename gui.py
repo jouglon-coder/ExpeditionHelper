@@ -21,6 +21,8 @@ EFFECTS = (
     "burn",
     "mark",
     "AP",
+    "Counterattack",
+    "Parry",
 )
 
 
