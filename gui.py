@@ -24,6 +24,21 @@ EFFECTS = (
 )
 
 
+FIXED_WIDTH_COLUMNS = (
+    "name",
+    "owner",
+    "elem",
+    "cost",
+)
+
+
+CENTERED_COLUMNS = (
+    "owner",
+    "elem",
+    "cost",
+)
+
+
 class ExpeditionHelperApp:
     def __init__(self, root: tk.Tk):
         self.root = root
@@ -45,6 +60,18 @@ class ExpeditionHelperApp:
         self.manager.skills.sort(
             key=lambda item: (item.owner, item.name)
         )
+
+        self.and_effect_variables = {
+            effect: tk.BooleanVar()
+            for effect in EFFECTS
+        }
+
+        self.or_effect_variables = {
+            effect: tk.BooleanVar()
+            for effect in EFFECTS
+        }
+
+        self.effect_pages = []
 
         self.create_tabs()
 
@@ -85,42 +112,32 @@ class ExpeditionHelperApp:
         search_fields: tuple[str, ...],
     ):
         filters_frame = ttk.Frame(parent)
-        filters_frame.pack(fill="x", padx=10, pady=10)
-
-        ttk.Label(
-            filters_frame,
-            text="Effects:",
-        ).pack(
-            side="left",
-            padx=(0, 10),
-        )
-
-        effect_variables = {
-            effect: tk.BooleanVar()
-            for effect in EFFECTS
-        }
+        filters_frame.pack(fill="x", padx=10, pady=(6, 4))
 
         table, details = self.create_table(parent, items)
 
-        for effect_name, variable in effect_variables.items():
-            checkbutton = ttk.Checkbutton(
-                filters_frame,
-                text=(
-                    effect_name
-                    if effect_name == "AP"
-                    else effect_name.title()
-                ),
-                variable=variable,
-                command=lambda: self.filter_by_effects(
-                    table=table,
-                    items=items,
-                    search_fields=search_fields,
-                    effect_variables=effect_variables,
-                    details=details,
-                ),
-            )
+        self.effect_pages.append(
+            {
+                "table": table,
+                "items": items,
+                "search_fields": search_fields,
+                "details": details,
+            }
+        )
 
-            checkbutton.pack(side="left", padx=5)
+        self.create_effect_filter_row(
+            parent=filters_frame,
+            label_text="AND",
+            effect_variables=self.and_effect_variables,
+            command=self.filter_all_pages,
+        )
+
+        self.create_effect_filter_row(
+            parent=filters_frame,
+            label_text="OR",
+            effect_variables=self.or_effect_variables,
+            command=self.filter_all_pages,
+        )
 
         table.bind(
             "<<TreeviewSelect>>",
@@ -129,6 +146,35 @@ class ExpeditionHelperApp:
                 details,
             ),
         )
+
+    def create_effect_filter_row(
+        self,
+        parent: ttk.Frame,
+        label_text: str,
+        effect_variables: dict[str, tk.BooleanVar],
+        command,
+    ):
+        row_frame = ttk.Frame(parent)
+        row_frame.pack(fill="x", pady=0)
+
+        ttk.Label(
+            row_frame,
+            text=label_text,
+            width=5,
+        ).pack(
+            side="left",
+            padx=(0, 8),
+        )
+
+        for effect_name, variable in effect_variables.items():
+            checkbutton = ttk.Checkbutton(
+                row_frame,
+                text=self.format_effect_label(effect_name),
+                variable=variable,
+                command=command,
+            )
+
+            checkbutton.pack(side="left", padx=5)
 
     def create_table(
         self,
@@ -205,8 +251,9 @@ class ExpeditionHelperApp:
             table.column(
                 column_name,
                 width=self.get_column_width(column_name),
-                minwidth=80,
-                anchor="w",
+                minwidth=self.get_column_width(column_name),
+                anchor=self.get_column_anchor(column_name),
+                stretch=column_name not in FIXED_WIDTH_COLUMNS,
             )
 
         details = tk.Text(
@@ -247,36 +294,57 @@ class ExpeditionHelperApp:
 
         return table, details
 
+    def filter_all_pages(self):
+        for page in self.effect_pages:
+            self.filter_by_effects(
+                table=page["table"],
+                items=page["items"],
+                search_fields=page["search_fields"],
+                details=page["details"],
+            )
+
     def filter_by_effects(
         self,
         table: ttk.Treeview,
         items: list,
         search_fields: tuple[str, ...],
-        effect_variables: dict[str, tk.BooleanVar],
         details: tk.Text,
     ):
-        selected_effects = [
+        selected_and_effects = [
             effect_name
-            for effect_name, variable in effect_variables.items()
+            for effect_name, variable in self.and_effect_variables.items()
             if variable.get()
         ]
 
-        if not selected_effects:
-            filtered_items = items
-        else:
-            filtered_items = []
+        selected_or_effects = [
+            effect_name
+            for effect_name, variable in self.or_effect_variables.items()
+            if variable.get()
+        ]
 
-            for item in items:
-                searchable_text = " ".join(
-                    str(getattr(item, field_name))
-                    for field_name in search_fields
-                )
+        filtered_items = []
 
-                if all(
+        for item in items:
+            searchable_text = " ".join(
+                str(getattr(item, field_name))
+                for field_name in search_fields
+            )
+
+            and_matches = all(
+                self.effect_matches(effect, searchable_text)
+                for effect in selected_and_effects
+            )
+
+            or_matches = (
+                not selected_or_effects
+                or any(
                     self.effect_matches(effect, searchable_text)
-                    for effect in selected_effects
-                ):
-                    filtered_items.append(item)
+                    for effect in selected_or_effects
+                )
+            )
+
+            if and_matches and or_matches:
+                filtered_items.append(item)
 
         self.fill_table(table, filtered_items)
         self.clear_details(details)
@@ -369,12 +437,18 @@ class ExpeditionHelperApp:
         return str(value)
 
     @staticmethod
+    def format_effect_label(effect_name: str) -> str:
+        if effect_name == "AP":
+            return "AP"
+
+        return effect_name.title()
+
+    @staticmethod
     def get_column_width(column_name: str):
+        if column_name in FIXED_WIDTH_COLUMNS:
+            return 160
+
         widths = {
-            "name": 160,
-            "owner": 90,
-            "elem": 90,
-            "cost": 60,
             "description": 500,
             "special": 400,
             "location": 600,
@@ -384,3 +458,10 @@ class ExpeditionHelperApp:
         }
 
         return widths.get(column_name, 150)
+
+    @staticmethod
+    def get_column_anchor(column_name: str):
+        if column_name in CENTERED_COLUMNS:
+            return "center"
+
+        return "w"
