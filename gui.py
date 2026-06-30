@@ -21,13 +21,15 @@ EFFECTS = (
     "burn",
     "mark",
     "AP",
-    "Counterattack",
-    "Parry",
+    "counterattack",
+    "parry",
 )
 
+NAME_COLUMNS = (
+    "name",
+)
 
 FIXED_WIDTH_COLUMNS = (
-    "name",
     "owner",
     "elem",
     "cost",
@@ -72,6 +74,9 @@ class ExpeditionHelperApp:
             effect: tk.BooleanVar()
             for effect in EFFECTS
         }
+
+        self.and_text_variable = tk.StringVar()
+        self.or_text_variable = tk.StringVar()
 
         self.effect_pages = []
 
@@ -131,6 +136,7 @@ class ExpeditionHelperApp:
             parent=filters_frame,
             label_text="AND",
             effect_variables=self.and_effect_variables,
+            text_variable=self.and_text_variable,
             command=self.filter_all_pages,
         )
 
@@ -138,6 +144,7 @@ class ExpeditionHelperApp:
             parent=filters_frame,
             label_text="OR",
             effect_variables=self.or_effect_variables,
+            text_variable=self.or_text_variable,
             command=self.filter_all_pages,
         )
 
@@ -154,6 +161,7 @@ class ExpeditionHelperApp:
         parent: ttk.Frame,
         label_text: str,
         effect_variables: dict[str, tk.BooleanVar],
+        text_variable: tk.StringVar,
         command,
     ):
         row_frame = ttk.Frame(parent)
@@ -177,6 +185,26 @@ class ExpeditionHelperApp:
             )
 
             checkbutton.pack(side="left", padx=5)
+
+        ttk.Label(
+            row_frame,
+            text="Words:",
+        ).pack(
+            side="left",
+            padx=(12, 4),
+        )
+
+        entry = ttk.Entry(
+            row_frame,
+            textvariable=text_variable,
+            width=24,
+        )
+        entry.pack(side="left")
+
+        entry.bind(
+            "<KeyRelease>",
+            lambda event: command(),
+        )
 
     def create_table(
         self,
@@ -324,6 +352,17 @@ class ExpeditionHelperApp:
             if variable.get()
         ]
 
+        selected_and_words = self.parse_words(
+            self.and_text_variable.get()
+        )
+
+        selected_or_words = self.parse_words(
+            self.or_text_variable.get()
+        )
+
+        and_terms = selected_and_effects + selected_and_words
+        or_terms = selected_or_effects + selected_or_words
+
         filtered_items = []
 
         for item in items:
@@ -333,15 +372,15 @@ class ExpeditionHelperApp:
             )
 
             and_matches = all(
-                self.effect_matches(effect, searchable_text)
-                for effect in selected_and_effects
+                self.effect_matches(term, searchable_text)
+                for term in and_terms
             )
 
             or_matches = (
-                not selected_or_effects
+                not or_terms
                 or any(
-                    self.effect_matches(effect, searchable_text)
-                    for effect in selected_or_effects
+                    self.effect_matches(term, searchable_text)
+                    for term in or_terms
                 )
             )
 
@@ -423,6 +462,14 @@ class ExpeditionHelperApp:
         return effect.lower() in text.lower()
 
     @staticmethod
+    def parse_words(text: str):
+        return [
+            word.strip()
+            for word in text.split(",")
+            if word.strip()
+        ]
+
+    @staticmethod
     def clear_details(details: tk.Text):
         details.configure(state="normal")
         details.delete("1.0", "end")
@@ -440,15 +487,21 @@ class ExpeditionHelperApp:
 
     @staticmethod
     def format_effect_label(effect_name: str) -> str:
-        if effect_name == "AP":
-            return "AP"
+        labels = {
+            "AP": "AP",
+            "counterattack": "Counterattack",
+            "parry": "Parry",
+        }
 
-        return effect_name.title()
+        return labels.get(effect_name, effect_name.title())
 
     @staticmethod
     def get_column_width(column_name: str):
-        if column_name in FIXED_WIDTH_COLUMNS:
+        if column_name in NAME_COLUMNS:
             return 160
+
+        if column_name in FIXED_WIDTH_COLUMNS:
+            return 80
 
         widths = {
             "description": 500,
