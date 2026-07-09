@@ -23,6 +23,7 @@ EFFECTS = (
     "AP",
     "counterattack",
     "parry",
+    "break",
 )
 
 NAME_COLUMNS = (
